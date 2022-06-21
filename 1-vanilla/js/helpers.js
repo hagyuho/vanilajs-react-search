@@ -10,10 +10,12 @@ export function qsAll(selector, scope = document) {
   return Array.from(scope.querySelectorAll(selector));
 }
 
+// addEventListener wrapping
 export function on(target, eventName, handler) {
   target.addEventListener(eventName, handler);
 }
 
+// 특정 element 하위에 있는 자식 element의 이벤트를 처리할 때 사용
 export function delegate(target, eventName, selector, handler) {
   const emitEvent = (event) => {
     const potentialElements = qsAll(selector, target);
@@ -28,6 +30,7 @@ export function delegate(target, eventName, selector, handler) {
   on(target, eventName, emitEvent);
 }
 
+// 특정 이벤트 발행
 export function emit(target, eventName, detail) {
   const event = new CustomEvent(eventName, { detail });
   target.dispatchEvent(event);
