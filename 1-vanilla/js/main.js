@@ -3,6 +3,9 @@ import Store from "./store.js";
 import storage from "./storage.js";
 import SearchFormView from "./views/SearchFormView.js";
 import SearchResultView from "./views/SearchResultView.js";
+import TabView from "./views/TabView.js";
+import KeywordListView from "./views/KeywordListView.js";
+import HistoryListView from "./views/HistoryListView.js";
 
 const tag = "[main]";
 // DOMContentLoaded : DOM이 로딩 완료 했을 때 호출 : onLoading
@@ -15,6 +18,9 @@ function main() {
   const views = {
     searchFormView: new SearchFormView(),
     searchResultView: new SearchResultView(),
+    tabView: new TabView(),
+    keywordListView: new KeywordListView(),
+    historyListView: new HistoryListView(),
   };
 
   new Controller(store, views);
