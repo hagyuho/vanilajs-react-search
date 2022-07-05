@@ -24,7 +24,10 @@ function App() {
     setSelectedTabType(value);
   };
   const handleHistoryData = (newHistory) => {
-    setHistoryData([...historyData, newHistory]);
+    const newHistoryData = historyData.filter(
+      (item) => item.keyword !== newHistory.keyword
+    );
+    setHistoryData([...newHistoryData, newHistory]);
   };
 
   return (
